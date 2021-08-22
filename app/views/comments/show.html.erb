@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th> 
+      <th>Project</th>
+      <th>Issued by</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><%= @comment.id %></td>
+      <td><%= @comment.project.reference %></td>
+      <td><%= @comment.user.username %></td>
+      <td><%= @comment.title %></td>
+      <td><%= @comment.body %></td>
+    </tr>
+  </tbody>
+</table>

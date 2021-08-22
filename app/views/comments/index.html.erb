@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th> 
+      <th>Project</th>
+      <th>Issued by</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= link_to comment.id, comment %></td>
+        <td><%= comment.project.reference %></td>
+        <td><%= comment.user.username %></td>
+        <td><%= comment.title %></td>
+        <td><%= comment.body %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

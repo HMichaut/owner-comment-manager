@@ -1,0 +1,13 @@
+<%= simple_form_for(@comment) do |f| %>
+<%= f.error_notification %>
+<%= f.object.errors.full_messages.join(", ") if f.object.errors.any? %>
+<div class="field">
+  <div class="control">
+    <div><%= f.input :project_id, label: "Project", input_html: { class: "select" }, collection: @project_options, wrapper: false, label_html: {class: "label"}, placeholder: "Project", autofocus: false %></div><br>
+    <div><%= f.input :title, label: "Comment Title", input_html: { class: "text" }, wrapper: false, label_html: {class: "label"}, placeholder: "Comment title", autofocus: true %></div><br>
+    <div><%= f.input :body, label: "Comment Description", input_html: { class: "text" }, wrapper: false, label_html: {class: "label"}, placeholder: "Comment description", autofocus: false %></div>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  </div>
+</div>
+<%= f.button :submit, class: "button is-info" %>
+<% end %>
