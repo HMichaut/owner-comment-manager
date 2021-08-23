@@ -6,16 +6,15 @@ class CommentsController < ApplicationController
   end
 
   def show
-    
   end
 
   def new
     @comment = Comment.new
     @project_options = Project.all.map{ |u| [ u.reference, u.id ]}.uniq { |x| x[0] }
-    p @project_options
   end
 
   def edit
+    @project_options = Project.all.map{ |u| [ u.reference, u.id ]}.uniq { |x| x[0] }
   end
 
   def create
@@ -28,6 +27,11 @@ class CommentsController < ApplicationController
   end
 
   def update
+    if @comment.update(comment_params)
+      redirect_to @comment
+    else
+      render :edit
+    end
   end
 
   def destroy

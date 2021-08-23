@@ -2,11 +2,10 @@
 	<div class="container">
 		<div class="columns is-centered">
 			<div class="column is-half">
-				<h1 class="title">New Comment</h1>
+				<h1 class="title">Editing Comment</h1>
 				<%= render 'form', comment: @comment, project_options: @project_options %><br>
-        <%= link_to 'Back', comments_path, class: "button is-dark" %>
+				<%= link_to 'Cancel', comments_path, class: "button is-dark" %>
 			</div>
 		</div>
 	</div>
 </div>
-
