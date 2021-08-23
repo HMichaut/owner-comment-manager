@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
   end
 
   def show
+    @replies = @comment.replies
   end
 
   def new
