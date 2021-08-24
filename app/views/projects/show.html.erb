@@ -1,0 +1,19 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th> 
+      <th>Reference</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><%= @project.id %></td>
+      <td><%= @project.reference %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
