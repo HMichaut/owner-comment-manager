@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :comments
   resources :replies
   resources :projects
+  resources :project_relations
 end

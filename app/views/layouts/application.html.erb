@@ -37,7 +37,13 @@
           <div class="navbar-end">
             <div class="field is-grouped">
               <p class="control">
-                <%= link_to 'New Comment', new_comment_path, class: "button is-info is-inverted" %>
+                <%= link_to 'Comments', comments_path, class: "button is-info is-inverted" %>
+              </p>
+              <p class="control">
+                <%= link_to 'Projects', projects_path, class: "button is-info is-inverted" %>
+              </p>
+              <p class="control">
+                <%= link_to 'Project Attribution', project_relations_path, class: "button is-info is-inverted" %>
               </p>
               <% if user_signed_in? %>
                 <p class="control">
