@@ -1,0 +1,10 @@
+<%= form_with url: "/index", method: :get do |form| %>
+  <div class="field">
+    <%= form.label :project %><br>
+    <%= select_tag(:selected_project, options_for_select(@project_options)) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Search" %>
+  </div>
+<% end %>
