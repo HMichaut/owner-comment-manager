@@ -43,7 +43,10 @@
                 <%= link_to 'Projects', projects_path, class: "button is-info is-inverted" %>
               </p>
               <p class="control">
-                <%= link_to 'Project Attribution', project_relations_path, class: "button is-info is-inverted" %>
+                <%= link_to 'Project Attributions', project_relations_path, class: "button is-info is-inverted" %>
+              </p>
+              <p class="control">
+                <%= link_to 'Categories', categories_path, class: "button is-info is-inverted" %>
               </p>
               <% if user_signed_in? %>
                 <p class="control">

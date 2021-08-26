@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :replies
   resources :projects
   resources :project_relations
+  resources :categories
 end

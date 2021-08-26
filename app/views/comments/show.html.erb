@@ -3,10 +3,14 @@
     <tr>
       <th>Id</th> 
       <th>Project</th>
+      <th>Category</th>
       <th>Issued by</th>
+      <th>Status</th>
+      <th>Creation date</th>
+      <th>Closing date</th>
       <th>Title</th>
       <th>Description</th>
-      <th colspan="5"></th>
+      <th colspan="9"></th>
     </tr>
   </thead>
 
@@ -14,7 +18,11 @@
     <tr>
       <td><%= @comment.id %></td>
       <td><%= @comment.project.reference %></td>
+      <td><%= @comment.category.reference %></td>
       <td><%= @comment.user.username %></td>
+      <td><%= @comment.status ? 'Closed' : 'Open' %></td>
+      <td><%= @comment.created_at.strftime("%d/%m/%Y") %></td>
+      <td><%= @comment.closing_date.nil? ? nil : @comment.closing_date.strftime("%d/%m/%Y") %></td>
       <td><%= @comment.title %></td>
       <td><%= @comment.body %></td>
     </tr>
@@ -44,6 +52,12 @@
   </table>
 <% end %>
 
-<%= link_to 'New Reply', new_reply_path(comment: @comment) %> |
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<% if @comment.status %>
+  <%= link_to('Open Comment', comment_path(@comment, comment: {status: false, closing_date: nil}), method: :put, confirm: "Are you sure?", class: "button is-dark")  %>
+<% else %>
+  <%= link_to('Close Comment', comment_path(@comment, comment: {status: true, closing_date: DateTime.now}), method: :put, confirm: "Are you sure?", class: "button is-dark")  %>
+<% end %>
+
+<%= link_to 'New Reply', new_reply_path(comment: @comment), class: "button is-dark"  %>
+<%= link_to 'Edit', edit_comment_path(@comment), class: "button is-dark"  %>
+<%= link_to 'Back', comments_path, class: "button is-dark"  %>

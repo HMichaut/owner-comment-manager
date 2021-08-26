@@ -3,7 +3,7 @@
 		<div class="columns is-centered">
 			<div class="column is-half">
 				<h1 class="title">Editing Comment</h1>
-				<%= render 'form', comment: @comment, project_options: @project_options %><br>
+				<%= render 'form', comment: @comment, project_options: @project_options, category_options: @category_options  %><br>
 				<%= link_to 'Cancel', comments_path, class: "button is-dark" %>
 			</div>
 		</div>
