@@ -1,0 +1,21 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th> 
+      <th>Project</th>
+      <th>Hull Number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><%= @vessel.id %></td>
+      <td><%= @vessel.project.reference %></td>
+      <td><%= @vessel.hull_number %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_vessel_path(@vessel) %> |
+<%= link_to 'Back', vessels_path %>

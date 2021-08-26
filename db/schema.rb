@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_26_205157) do
+ActiveRecord::Schema.define(version: 2021_08_26_215109) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2021_08_26_205157) do
     t.integer "category_id"
     t.boolean "status"
     t.datetime "closing_date"
+    t.integer "vessel_id"
   end
 
   create_table "project_relations", force: :cascade do |t|
@@ -92,6 +93,13 @@ ActiveRecord::Schema.define(version: 2021_08_26_205157) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
+  end
+
+  create_table "vessels", force: :cascade do |t|
+    t.integer "project_id"
+    t.string "hull_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

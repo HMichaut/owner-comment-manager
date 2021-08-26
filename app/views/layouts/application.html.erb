@@ -48,6 +48,9 @@
               <p class="control">
                 <%= link_to 'Categories', categories_path, class: "button is-info is-inverted" %>
               </p>
+              <p class="control">
+                <%= link_to 'Vessels', vessels_path, class: "button is-info is-inverted" %>
+              </p>
               <% if user_signed_in? %>
                 <p class="control">
                   <%= link_to current_user.username, edit_user_registration_path, class: "button is-info" %>

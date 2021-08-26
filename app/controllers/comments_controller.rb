@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show edit update destroy ]
   before_action :set_project_options, only: %i[ index new edit ]
+  before_action :set_vessel_options, only: %i[ index new edit ]
   before_action :set_category_options, only: %i[ index new edit ]
 
   def index
@@ -52,11 +53,15 @@ class CommentsController < ApplicationController
       @project_options = current_user.projects.map{ |u| [ u.reference, u.id ]}.uniq { |x| x[0] }
     end
 
+    def set_vessel_options
+      @vessel_options = Vessel.where(project_id: current_user.projects.map{ |u| u.id}).map{ |u| [ u.hull_number, u.id ]}.uniq { |x| x[0] }
+    end
+
     def set_category_options
       @category_options = Category.all
     end
 
     def comment_params
-      params.require(:comment).permit(:title, :body, :user_id, :project_id, :category_id, :status, :closing_date)
+      params.require(:comment).permit(:title, :body, :user_id, :project_id, :category_id, :status, :closing_date, :vessel_id)
     end
 end

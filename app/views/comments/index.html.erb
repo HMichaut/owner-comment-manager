@@ -5,6 +5,7 @@
     <tr>
       <th>Id</th> 
       <th>Project</th>
+      <th>Vessel</th>
       <th>Category</th>
       <th>Issued by</th>
       <th>Status</th>
@@ -12,7 +13,7 @@
       <th>Closing date</th>
       <th>Title</th>
       <th>Description</th>
-      <th colspan="8"></th>
+      <th colspan="10"></th>
     </tr>
   </thead>
 
@@ -21,6 +22,7 @@
       <tr>
         <td><%= link_to comment.id, comment %></td>
         <td><%= comment.project.reference %></td>
+        <td><%= comment.vessel.nil? ? nil : comment.vessel.hull_number %></td>
         <td><%= comment.category.reference %></td>
         <td><%= comment.user.username %></td>
         <td><%= comment.status ? 'Closed' : 'Open' %></td>

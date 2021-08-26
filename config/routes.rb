@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :projects
   resources :project_relations
   resources :categories
+  resources :vessels
 end
