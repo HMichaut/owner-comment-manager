@@ -16,6 +16,6 @@ class RepliesController < ApplicationController
 
   private
     def reply_params
-      params.require(:reply).permit(:body, :user_id, :comment_id)
+      params.require(:reply).permit(:body, :user_id, :comment_id, :image)
     end
 end
