@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :project_relations
   resources :categories
   resources :vessels
+  resource :dashboards
 end
